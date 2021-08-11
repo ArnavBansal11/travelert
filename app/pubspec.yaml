@@ -29,6 +29,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.0.6
+  flutter_typeahead: ^3.2.0
+  geolocator: ^7.4.0
+  geocoding: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +74,9 @@ flutter:
           weight: 600
         - asset: fonts/Poppins700.ttf
           weight: 700
+    - family: MyIcons
+      fonts:
+        - asset: fonts/MyFlutterApp.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
