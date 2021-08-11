@@ -1,0 +1,135 @@
+{"141": {
+  "districtName": "Delhi",
+  "touristSights": [
+       {
+           "name": "The Red Fort",
+           "description": "The beautiful Red Fort was built by Shah Jahan in 1648 and served as the seat of Mughal power until 1857. This stunning structure, with its tall, red sandstone walls covers an area of more than two square kilometers, the entirety of which is crescent shaped and surrounded by a moat.",
+           "lat": "28.6562",
+           "long": "77.2410",
+           "openTime": "9.30 am",
+           "closeTime": "4.30 pm"
+       },
+              {
+           "name": "India Gate",
+           "description": "Looking a little like the famous Arc de Triomphe in Paris, the equally impressive India Gate is a magnificent stone arch built as a memorial to Indian soldiers killed in WWI.",
+           "lat": "28.6129",
+           "long": "77.2295",
+           "openTime": "7am",
+           "closeTime": "9:30pm"
+       },
+              {
+           "name": "Qutub Minar",
+           "description": "Completed in the 12th century, the beautiful Qutub Minar-India's tallest minaret and now a UNESCO Word Heritage Site-attracts many international visitors eager to climb to the top for its breathtaking views of the surrounding area.",
+           "lat": "28.5245",
+           "long": "77.1855",
+           "openTime": "7am",
+           "closeTime": "5pm"
+       },
+              {
+           "name": "Gurudwara Bangla Sahib",
+           "description": "Delhi's most important Sikh place of worship, the 18th-century Gurdwara Bangla Sahib is near Connaught Place and is well worth a visit.",
+           "lat": "28.6266",
+           "long": "77.2091",
+           "openTime": "00:00",
+           "closeTime": "23:59"
+       },
+              {
+           "name": "The Lotus Temple",
+           "description": "The magnificent Bahá'í House of Worship, also known as the Lotus Temple due to its nine sides and stunning central dome, is an architectural masterpiece.",
+           "lat": "28.5535",
+           "long": "77.2588",
+           "openTime": "9:00 AM",
+           "closeTime": "7:00 PM"
+       }
+  ],
+  "utils": [
+      {
+          "name": "D.D.A market washroom",
+          "lat": "28.6000",
+          "long": "77.3179"
+      }, 
+      {
+          "name": "indian oil petrol pump dealer m/s taneja service stati",
+          "lat": "28.6289242",
+          "long":"77.3213784"
+      },
+      {
+          "name": "Taj Palace",
+          "lat": "28.5953",
+          "long": "77.1710"
+      },
+      {
+          "name": "Indraprastha Apollo Hospitals, New Delhi",
+          "lat": "28.5415",
+          "long": "77.2833"
+      }
+  ]
+},
+ "622":{
+     "districtName": "Agra",
+     "touristSights": [
+         {
+             "name": "Taj Mahal",
+             "description": "One of the seven wonders of the world, the Taj Mahal stands tall at the south bank of the river Yamuna in Agra. Taj Mahal or the “icon of love” is one of the best places to visit in Agra and the most popular tourist destinations in India.",
+             "lat": "27.1751",
+             "long": "78.0421",
+             "openTime": "6:00 am",
+             "closeTime": "6:30 pm"
+         },
+                 {
+             "name": "Agra Fort",
+             "description": "Agra Fort was one of the most important forts during the Mughal period and is one of the finest places to see in Agra today. Akbar the great called this fort his home throughout his reign till 1605. Just like the Taj Mahal.",
+             "lat": "27.1795",
+             "long": "78.0211",
+             "openTime": "6 am",
+             "closeTime": "6 pm"
+         },
+                 {
+             "name": "Fatehpur Sikri",
+             "description": "Fatehpur Sikri, a town in Agra district was once the capital of the Mughal empire. The town was built and established by Akbar and later abandoned in 1610.",
+             "lat": "27.0945",
+             "long": "77.6679",
+             "openTime": "6:00 am",
+             "closeTime": " 6:00 pm"
+         },
+                 {
+             "name": "Itmad-ud-Daulah's Tomb",
+             "description": "The architecture and interior are known to be inspired by that of Taj Mahal’s as it also has traces of white marble from Rajasthan amidst the red sandstone. And for the same reason, it is also known as the “Baby Taj”.",
+             "lat": "27.1929",
+             "long": "78.0310",
+             "openTime": "6 am",
+             "closeTime": "6 pm"
+         },
+                 {
+             "name": "Akbar's Tomb",
+             "description": "If you’re a history buff, this is one of the best places to visit in Agra for you. The tomb is built in red sandstone and holds some of the most stunning marble designs.",
+             "lat": "27.2206",
+             "long": "77.9505",
+             "openTime": "10 am",
+             "closeTime": " 6 pm"
+         }
+     ],
+     "utils": [
+      {
+          "name": "Public Toilet - Sanjay Place",
+          "lat": "27.2028",
+          "long": "78.0049"
+      }, 
+      {
+          "name": "Petrol Pump Transport Nagar Agra",
+          "lat": "27.2106",
+          "long":"77.9714"
+      },
+      {
+          "name": "The Oberoi Amarvilas",
+          "lat": "27.167507",
+          "long": "78.049398"
+      },
+      {
+          "name": "Shree Krishna Hospital Agra",
+          "lat": "27.2040261",
+          "long": "78.0470946"
+      }
+  ]
+ }
+}

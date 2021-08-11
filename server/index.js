@@ -1,6 +1,8 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
+const places = require('./agra-delhi.json');
+
 const express = require('express');
 
 const app = express();
@@ -20,6 +22,18 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
+});
+
+app.get('/api/touristSites/:districtID', (req, res) => {
+  const districtID = req.params.districtID;
+  const touristSites = places[districtID].touristSights;
+  res.json(touristSites);
+});
+
+app.get('/api/utilities/:districtID', (req, res) => {
+  const districtID = req.params.districtID;
+  const utilities = places[districtID].utils;
+  res.json(utilities);
 });
 
 const port = process.env.PORT || 3000;
