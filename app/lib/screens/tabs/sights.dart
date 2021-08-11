@@ -4,6 +4,7 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 import "package:app/data/districts.dart";
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import "package:http/http.dart" as http;
 
 class Sights extends StatefulWidget {
   const Sights({Key? key}) : super(key: key);
@@ -13,6 +14,10 @@ class Sights extends StatefulWidget {
 }
 
 class _SightsState extends State<Sights> {
+
+  bool searched = false;
+  bool isLoading = false;
+
   Future<dynamic> _determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
@@ -145,7 +150,9 @@ class _SightsState extends State<Sights> {
                   print(latLng);
                   var place = await placemarkFromCoordinates(
                       latLng.latitude, latLng.longitude);
-                  print(place);
+                  print(place[0].postalCode);
+                  var res = await http.get(Uri.parse("$baseUrl/api/toDistrict/${place[0].postalCode}"));
+                  print(res.body);
                 },
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -153,7 +160,8 @@ class _SightsState extends State<Sights> {
                       style: TextStyle(
                           color: primary, fontWeight: FontWeight.w500)),
                 ]),
-              )
+              ),
+              SliverFillRemaining()
             ],
           ),
         ),
