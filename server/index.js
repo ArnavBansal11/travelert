@@ -4,6 +4,7 @@ dotenv.config();
 const places = require("./data/agra-delhi.json");
 const pincodes = require("./data/pincodes.json");
 const districts = require("./data/data.json");
+const music = require("./data/music.json");
 
 const express = require("express");
 
@@ -21,6 +22,7 @@ app.use(function (req, res, next) {
 });
 
 app.use(express.json());
+app.use("/cdn", express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -28,13 +30,15 @@ app.get("/", (req, res) => {
 
 app.get("/api/touristSites/:districtID", (req, res) => {
   const districtID = req.params.districtID;
-  const touristSites = places[districtID].touristSights;
+  const touristSites = places[districtID]?.touristSights;
+  if (!touristSites) return res.json([]);
   res.json(touristSites);
 });
 
 app.get("/api/utilities/:districtID", (req, res) => {
   const districtID = req.params.districtID;
-  const utilities = places[districtID].utils;
+  const utilities = places[districtID]?.utils;
+  if (!utilities) return res.json([]);
   res.json(utilities);
 });
 
@@ -53,12 +57,28 @@ app.get("/api/toDistrict/:pincode", (req, res) => {
     s.districts.forEach((d) => {
       if (d.district_name == pincode.districtName) {
         console.log(d);
-        district = d;
+        district = {
+          district_id: d.district_id,
+          district_name: `${d.district_name}, ${s.name}`,
+        };
       }
     });
   });
 
   res.send(district);
+});
+
+app.get("/api/music/popular", (req, res) => {
+  const musicSend = [];
+  Object.values(music).forEach((s) => {
+    s.forEach((m) => musicSend.push(m));
+  });
+
+  res.send(musicSend);
+});
+
+app.get("/api/music/:id", (req, res) => {
+  res.send(music[req.params.id]);
 });
 
 const port = process.env.PORT || 3000;

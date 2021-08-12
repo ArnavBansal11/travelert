@@ -1,0 +1,30 @@
+{
+  "141": [
+    {
+      "name": "Delhi 1",
+      "image": "/cdn/india_gate.png",
+      "color": "3265E9",
+      "link": "https://open.spotify.com/playlist/10istDPCOPLqoiSUPuFhkg?si=i_p5-4IdQ7GGxowA06DCCQ&utm_source=native-share-menu&dl_branch=1"
+    },
+    {
+      "name": "Delhi 2",
+      "image": "/cdn/india_gate.png",
+      "color": "FF5151",
+      "link": "https://open.spotify.com/playlist/10istDPCOPLqoiSUPuFhkg?si=i_p5-4IdQ7GGxowA06DCCQ&utm_source=native-share-menu&dl_branch=1"
+    }
+  ],
+  "622": [
+    {
+      "name": "Agra 1",
+      "image": "/cdn/taj_mahal.png",
+      "color": "E97432",
+      "link": "https://open.spotify.com/album/4DLocomrtTqBV74OTn6MZG?si=ieA5oxpuQqO9PjScO5H7bA&utm_source=copy-link&dl_branch=1"
+    },
+    {
+      "name": "Agra 2",
+      "image": "/cdn/taj_mahal.png",
+      "color": "A349FE",
+      "link": "https://open.spotify.com/album/4DLocomrtTqBV74OTn6MZG?si=ieA5oxpuQqO9PjScO5H7bA&utm_source=copy-link&dl_branch=1"
+    }
+  ]
+}
