@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:app/globals.dart';
+import 'package:app/widgets/PlaceCard.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import "package:app/data/districts.dart";
@@ -14,9 +17,16 @@ class Sights extends StatefulWidget {
 }
 
 class _SightsState extends State<Sights> {
-
   bool searched = false;
   bool isLoading = false;
+  String hintText = "Search for a city...";
+
+  int? districtId;
+  String? districtName;
+
+  List places = [];
+
+  TextEditingController _searchController = TextEditingController();
 
   Future<dynamic> _determinePosition() async {
     bool serviceEnabled;
@@ -80,6 +90,16 @@ class _SightsState extends State<Sights> {
     ));
   }
 
+  void getPlaces(int id) async {
+    print(id);
+    var res = await http.get(Uri.parse("$baseUrl/api/touristSites/$id"));
+    print(res.body);
+    setState(() {
+      isLoading = false;
+      places = jsonDecode(res.body);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -100,8 +120,12 @@ class _SightsState extends State<Sights> {
               TypeAheadField(
                   textFieldConfiguration: TextFieldConfiguration(
                       cursorColor: primary,
+                      controller: _searchController,
                       decoration: InputDecoration(
-                          hintText: "Search for a city..",
+                          hintText: "Search for a city...",
+                          hintStyle: TextStyle(
+                            color: Color(0xffA1A1A1),
+                          ),
                           suffixIcon: Icon(
                             Icons.search,
                             color: primary,
@@ -127,7 +151,7 @@ class _SightsState extends State<Sights> {
                     );
                   },
                   suggestionsCallback: (pattern) {
-                    print(pattern);
+                    // print(pattern);
                     List suggestions = [];
                     districts.forEach((element) {
                       if (element['name']
@@ -142,17 +166,37 @@ class _SightsState extends State<Sights> {
                     // print(suggestion);
                     return ListTile(title: Text((suggestion as Map)['name']));
                   },
-                  onSuggestionSelected: (suggestion) {}),
+                  onSuggestionSelected: (suggestion) async {
+                    setState(() {
+                      isLoading = true;
+                      searched = true;
+                      districtId = (suggestion as Map)['id'];
+                    });
+                    _searchController.text = (suggestion as Map)['name'];
+                    getPlaces((suggestion as Map)['id']);
+                  }),
               SizedBox(height: 8),
               GestureDetector(
                 onTap: () async {
+                  setState(() {
+                    isLoading = true;
+                  });
                   var latLng = await _determinePosition();
                   print(latLng);
                   var place = await placemarkFromCoordinates(
                       latLng.latitude, latLng.longitude);
                   print(place[0].postalCode);
-                  var res = await http.get(Uri.parse("$baseUrl/api/toDistrict/${place[0].postalCode}"));
-                  print(res.body);
+                  var res = await http.get(Uri.parse(
+                      "$baseUrl/api/toDistrict/${place[0].postalCode}"));
+                  var body = jsonDecode(res.body);
+                  _searchController.text = body['district_name'];
+                  setState(() {
+                    hintText = body['district_name'];
+                    searched = true;
+                    districtId = body['district_id'];
+                    districtName = body['district_name'];
+                  });
+                  getPlaces(body['district_id']);
                 },
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -161,7 +205,74 @@ class _SightsState extends State<Sights> {
                           color: primary, fontWeight: FontWeight.w500)),
                 ]),
               ),
-              SliverFillRemaining()
+              isLoading
+                  ? Container(
+                      constraints: BoxConstraints(
+                          minHeight: MediaQuery.of(context).size.height - 300),
+                      child: Center(
+                          child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation(primary))))
+                  : !searched
+                      ? Container(
+                          // color: Colors.red,
+                          constraints: BoxConstraints(
+                              minHeight:
+                                  MediaQuery.of(context).size.height - 300),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(),
+                              Image.asset(
+                                "assets/search.png",
+                                width: MediaQuery.of(context).size.width * 0.4,
+                              ),
+                              SizedBox(height: 24),
+                              Text("Search for a city first",
+                                  style: TextStyle(
+                                    color: grey900,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18,
+                                  ))
+                            ],
+                          ),
+                        )
+                      : places.length == 0
+                          ? Container(
+                              constraints: BoxConstraints(
+                                  minHeight:
+                                      MediaQuery.of(context).size.height - 300),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(),
+                                  Image.asset(
+                                    "assets/alert.png",
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.4,
+                                  ),
+                                  SizedBox(height: 24),
+                                  Text("No places found",
+                                      style: TextStyle(
+                                        color: grey900,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18,
+                                      ))
+                                ],
+                              ),
+                            )
+                          : Column(
+                              children: [
+                                SizedBox(height: 40),
+                                Container(
+                                  child: Column(
+                                    children: places.map((p) {
+                                      return PlaceCard(place: p);
+                                    }).toList(),
+                                  ),
+                                ),
+                                SizedBox(height: 20),
+                              ],
+                            )
             ],
           ),
         ),
