@@ -106,7 +106,7 @@ app.get("/api/getNearby/:lat/:long/:pin", (req, res) => {
 
   const dId = district.district_id;
 
-  res.send(places[dId] ?? []);
+  res.send(places[dId].touristSights ?? []);
 });
 
 const port = process.env.PORT || 3000;
