@@ -17,7 +17,7 @@ import androidx.core.app.NotificationManagerCompat
 
 class AlarmReceiver : BroadcastReceiver() {
 
-    val CHANNEL_ID = "20071900"
+    val CHANNEL_ID = "200719003"
 
     override fun onReceive(context: Context, intent: Intent) {
 
@@ -26,7 +26,7 @@ class AlarmReceiver : BroadcastReceiver() {
         val sdkVersion = android.os.Build.VERSION.SDK_INT
 
         if (sdkVersion < 20) {
-            Log.d("Alarm Service", sdkVersion.toString())
+//            Log.d("Alarm Service", sdkVersion.toString())
             val i: Intent = Intent(context, AlarmActivity::class.java)
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             context.startActivity(i)
@@ -35,7 +35,7 @@ class AlarmReceiver : BroadcastReceiver() {
             val notif: Notification = buildNotification(context)
             with(NotificationManagerCompat.from(context)) {
                 // notificationId is a unique int for each notification that you must define
-                notify(19002007, notif)
+                notify(1900200733, notif)
             }
             val vibrateIntent: Intent = Intent(context, AlarmActionsReceiver::class.java)
             vibrateIntent.putExtra("ACTION", "START")
@@ -58,27 +58,26 @@ class AlarmReceiver : BroadcastReceiver() {
             fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         val sharedPrefs = context.getSharedPreferences(context.getString(R.string.shared_prefs_key), Context.MODE_PRIVATE)
-        val slotsIn = sharedPrefs.getInt("slotsIn", 1)
-        val place = sharedPrefs.getString("place", "")
+        val place = sharedPrefs.getString("placeName", "Taj Mahal")
+//        val place = sharedPrefs.getString("place", "")
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setDefaults(0)
             .setSmallIcon(R.drawable.common_full_open_on_phone)
-            .setContentTitle("Vaccines available in $slotsIn centers")
-            .setContentText("Slots are available in $place")
+            .setContentTitle("You are near the $place")
+            .setContentText("It is within 1km of you! You can go check it out")
             .setStyle(NotificationCompat.BigTextStyle()
-                .bigText("Slots are available in $place"))
+                .bigText("It is within 1km of you! You can go check it out"))
             .setPriority(NotificationCompat.PRIORITY_MAX)
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .setFullScreenIntent(fullScreenPendingIntent, true)
             .addAction(R.drawable.dismiss, "Dismiss", dismissPendingIntent)
-            .addAction(R.drawable.open, "Open CoWin", openPendingIntent)
+            .addAction(R.drawable.open, "Open Maps", openPendingIntent)
             .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000))
             .setOngoing(true)
 
         val defaultRingtoneUri: Uri = RingtoneManager.getActualDefaultRingtoneUri(context, RingtoneManager.TYPE_ALARM)
         builder.setSound(defaultRingtoneUri)
-
 
 
         return builder.build()
@@ -91,7 +90,7 @@ class AlarmReceiver : BroadcastReceiver() {
             val name = "Smart Jab Alarm"
             val descriptionText = "Notification Channel"
             val importance = NotificationManager.IMPORTANCE_HIGH
-            val channel = NotificationChannel("20071900", name, importance).apply {
+            val channel = NotificationChannel("200719003", name, importance).apply {
                 description = descriptionText
             }
             // Register the channel with the system

@@ -89,7 +89,8 @@ class AlarmActivity : AppCompatActivity() {
         val placeText: TextView = findViewById(R.id.centerName)
         val slotsText: TextView = findViewById(R.id.slotsAvailable)
 
-//        placeText.text = sharedPrefs.getString("place", "110001")
+        placeText.text = sharedPrefs.getString("placeName", "Taj Mahal")
+        slotsText.text = "Within 1km of you"
 //        slotsText.text = getString(R.string.slotsAvailable, sharedPrefs.getInt("slotsOpen", 2).toString())
 
         val dismissLayout: ConstraintLayout = findViewById(R.id.dismissLayout)

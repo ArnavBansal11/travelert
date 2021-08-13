@@ -1,1 +1,3 @@
-<resources></resources>
+<resources>
+    <string name="shared_prefs_key">com.example.travelert.SHARED_PREFS_FILE</string>
+</resources>
