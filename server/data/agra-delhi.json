@@ -4,11 +4,13 @@
     "touristSights": [
       {
         "name": "The Red Fort",
+        "id": "1",
         "description": "The beautiful Red Fort was built by Shah Jahan in 1648 and served as the seat of Mughal power until 1857. This stunning structure, with its tall, red sandstone walls covers an area of more than two square kilometers, the entirety of which is crescent shaped and surrounded by a moat.",
         "lat": "28.6562",
         "long": "77.2410",
         "openTime": "9.30 am",
         "closeTime": "4.30 pm",
+        "ratings": "4",
         "image": [
           "https://images.indianexpress.com/2018/06/red-fort-759-getty-images.jpg",
           "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Covered_market_past_the_Lahore_gate_entrance_in_Red_Fort.jpg/220px-Covered_market_past_the_Lahore_gate_entrance_in_Red_Fort.jpg",
@@ -17,11 +19,13 @@
       },
       {
         "name": "India Gate",
+        "id": "2",
         "description": "Looking a little like the famous Arc de Triomphe in Paris, the equally impressive India Gate is a magnificent stone arch built as a memorial to Indian soldiers killed in WWI.",
         "lat": "28.6129",
         "long": "77.2295",
         "openTime": "7am",
         "closeTime": "9:30pm",
+        "ratings": "4.5",
         "image": [
           "http://static.trip101.com/paragraph_media/pictures/001/817/876/large/travel-4813658_1280.jpg?1583142928",
           "https://media-cdn.tripadvisor.com/media/photo-s/01/5a/5f/4d/a-close-up-of-the-writing.jpg",
@@ -30,11 +34,13 @@
       },
       {
         "name": "Qutub Minar",
+        "id": "3",
         "description": "Completed in the 12th century, the beautiful Qutub Minar-India's tallest minaret and now a UNESCO Word Heritage Site-attracts many international visitors eager to climb to the top for its breathtaking views of the surrounding area.",
         "lat": "28.5245",
         "long": "77.1855",
         "openTime": "7am",
         "closeTime": "5pm",
+        "ratings": "5",
         "image": [
           "https://images.indianexpress.com/2019/11/qutub-minar.jpg",
           "https://akm-img-a-in.tosshub.com/indiatoday/images/story/201704/647_042717101905.jpg?size=770:433",
@@ -43,11 +49,13 @@
       },
       {
         "name": "Gurudwara Bangla Sahib",
+        "id": "4",
         "description": "Delhi's most important Sikh place of worship, the 18th-century Gurdwara Bangla Sahib is near Connaught Place and is well worth a visit.",
         "lat": "28.6266",
         "long": "77.2091",
         "openTime": "00:00",
         "closeTime": "23:59",
+        "ratings": "3.5",
         "image": [
           "http://www.transindiatravels.com/wp-content/uploads/bangla-sahib-gurudwara-delhi.jpg",
           "https://www.localguidesconnect.com/t5/image/serverpage/image-id/668656i25C518C8E2372472/image-size/large?v=v2&px=999",
@@ -56,11 +64,13 @@
       },
       {
         "name": "The Lotus Temple",
+        "id": "5",
         "description": "The magnificent Bahá'í House of Worship, also known as the Lotus Temple due to its nine sides and stunning central dome, is an architectural masterpiece.",
         "lat": "28.5535",
         "long": "77.2588",
         "openTime": "9:00 AM",
         "closeTime": "7:00 PM",
+        "ratings": "5",
         "image": [
           "https://www.pandotrip.com/wp-content/uploads/2014/09/Lotus-Tmple-Photo-by-Arpan-Das.jpg",
           "https://1.bp.blogspot.com/-az09PefXMpQ/UdRMg81w8QI/AAAAAAAAATg/tEFq4Pp9LRY/s575/lotus+temple.jpg",
@@ -71,30 +81,38 @@
     "utils": [
       {
         "name": "D.D.A market washroom",
+        "id": "6",
         "lat": "28.6000",
         "long": "77.3179",
+        "type": "washroom",
         "image": [
           "https://d2c6s77msf04pp.cloudfront.net/uploads/content/washroom-washroom-camden-market1-5c1a7f2aea5e0.jpg"
         ]
       },
       {
         "name": "indian oil petrol pump dealer m/s taneja service stati",
+        "id": "69",
         "lat": "28.6289242",
         "long": "77.3213784",
+        "type": "petrol pump",
         "image": ["https://i.ndtvimg.com/i/2017-05/ioc_650x400_71493650427.jpg"]
       },
       {
         "name": "Taj Palace",
+        "id": "42",
         "lat": "28.5953",
         "long": "77.1710",
+        "type": "hotel",
         "image": [
           "https://www.tajhotels.com/content/dam/luxury/hotels/taj-palace-delhi/images/at_a_glance/16x7/Facade3.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg"
         ]
       },
       {
         "name": "Indraprastha Apollo Hospitals, New Delhi",
+        "id": "691",
         "lat": "28.5415",
         "long": "77.2833",
+        "type": "hospital",
         "image": [
           "https://content.jdmagicbox.com/comp/noida/88/011p125688/catalogue/apollo-hospital-noida-sector-26-noida-hospitals-5nffdys6h5.jpg?clr=333333"
         ]
@@ -106,72 +124,96 @@
     "touristSights": [
       {
         "name": "Taj Mahal",
+        "id": "10",
         "description": "One of the seven wonders of the world, the Taj Mahal stands tall at the south bank of the river Yamuna in Agra. Taj Mahal or the “icon of love” is one of the best places to visit in Agra and the most popular tourist destinations in India.",
         "lat": "27.1751",
         "long": "78.0421",
         "openTime": "6:00 am",
         "closeTime": "6:30 pm",
+        "ratings": "4.8",
         "image": [
-          "https://thumbs-prod.si-cdn.com/E0Lm_ZfhHbqapE5Amhv-aiu8XYA=/1072x720/filters:no_upscale():focal(1471x1061:1472x1062)/https://public-media.si-cdn.com/filer/b6/30/b630b48b-7344-4661-9264-186b70531bdc/istock-478831658.jpg"
+          "https://thumbs-prod.si-cdn.com/E0Lm_ZfhHbqapE5Amhv-aiu8XYA=/1072x720/filters:no_upscale():focal(1471x1061:1472x1062)/https://public-media.si-cdn.com/filer/b6/30/b630b48b-7344-4661-9264-186b70531bdc/istock-478831658.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/27/72/b3.jpg",
+          "https://www.smartertravel.com/wp-content/uploads/2019/09/man-taj-mahal-hero-2.jpg"
         ]
       },
       {
         "name": "Agra Fort",
+        "id": "11",
         "description": "Agra Fort was one of the most important forts during the Mughal period and is one of the finest places to see in Agra today. Akbar the great called this fort his home throughout his reign till 1605. Just like the Taj Mahal.",
         "lat": "27.1795",
         "long": "78.0211",
         "openTime": "6 am",
         "closeTime": "6 pm",
+        "ratings": "3.9",
         "image": [
-          "https://www.fabhotels.com/blog/wp-content/uploads/2019/05/Agra-Fort_600.jpg"
+          "https://www.fabhotels.com/blog/wp-content/uploads/2019/05/Agra-Fort_600.jpg",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/07/c4/42/ea.jpg",
+          "https://lp-cms-production.imgix.net/2019-06/afa35ec6a9e15acf863935f4c3c154b6-agra-fort.jpg"
         ]
       },
       {
         "name": "Fatehpur Sikri",
+        "id": "19",
         "description": "Fatehpur Sikri, a town in Agra district was once the capital of the Mughal empire. The town was built and established by Akbar and later abandoned in 1610.",
         "lat": "27.0945",
         "long": "77.6679",
         "openTime": "6:00 am",
         "closeTime": " 6:00 pm",
+        "ratings": "4.7",
         "image": [
-          "https://static.toiimg.com/thumb/65839143.cms?resizemode=75&width=1200&height=900"
+          "https://static.toiimg.com/thumb/65839143.cms?resizemode=75&width=1200&height=900",
+          "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/2c/f1/38.jpg",
+          "https://mediaim.expedia.com/localexpert/613060/825ac9d1-02b1-4f2f-a8de-c9e6f6183565.jpg?impolicy=resizecrop&rw=1005&rh=565"
         ]
       },
       {
         "name": "Itmad-ud-Daulah's Tomb",
+        "id": "96",
         "description": "The architecture and interior are known to be inspired by that of Taj Mahal’s as it also has traces of white marble from Rajasthan amidst the red sandstone. And for the same reason, it is also known as the “Baby Taj”.",
         "lat": "27.1929",
         "long": "78.0310",
         "openTime": "6 am",
         "closeTime": "6 pm",
+        "ratings": "4.6",
         "image": [
-          "https://www.mapsofindia.com/ci-moi-images/my-india/idmat-ul-daulla.jpg"
+          "https://www.mapsofindia.com/ci-moi-images/my-india/idmat-ul-daulla.jpg",
+          "https://static.india.com/wp-content/uploads/2019/04/Tomb-of-Itimad-ud-Daulah-in-Agra.jpg",
+          "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/itmad-ud-daulah-tomb-maria-coulson.jpg"
         ]
       },
       {
         "name": "Akbar's Tomb",
+        "id": "6942",
         "description": "If you’re a history buff, this is one of the best places to visit in Agra for you. The tomb is built in red sandstone and holds some of the most stunning marble designs.",
         "lat": "27.2206",
         "long": "77.9505",
         "openTime": "10 am",
         "closeTime": " 6 pm",
+        "ratings": "3.5",
         "image": [
-          "https://static.toiimg.com/thumb/msid-31844226,width=1200,height=900/31844226.jpg"
+          "https://static.toiimg.com/thumb/msid-31844226,width=1200,height=900/31844226.jpg",
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Akbar_tomb_2.jpg/220px-Akbar_tomb_2.jpg",
+          "https://3.bp.blogspot.com/-85o0CfpFROk/XA11Wm42RZI/AAAAAAAAG2s/tc5VIFBoP1QZGTlH7lfEj-uCjb9IJo89QCLcBGAs/w1200-h630-p-k-no-nu/Akbar%2527s%2BTomb%2BSikandra%2BMain%2BBuilding.jpg"
         ]
       }
     ],
     "utils": [
       {
         "name": "Public Toilet - Sanjay Place",
+        "id": "98",
         "lat": "27.2028",
         "long": "78.0049",
+        "type": "washroom",
         "image": [
           "https://images.thestar.com/QmZaup4lLJSdgiRLXV8V-xZIeiI=/1280x1024/smart/filters:cb(1600477042366)/https://www.thespec.com/content/dam/thespec/opinion/contributors/2020/09/18/where-are-the-public-washrooms-hamilton/ts_coronavirus_publicbathrooms_dmt.jpg"
         ]
       },
       {
         "name": "Petrol Pump Transport Nagar Agra",
+        "id": "87",
         "lat": "27.2106",
+        "type": "petrol pump",
         "long": "77.9714",
         "image": [
           "https://pr1.nicelocal.in/XL6OAgmARENVu7fsaD5bbA/640x440,fit,q85/4px-BW84_n2aGZJPv2Q_uysuQlRKXWAtkzmuAfqDQIQOipsYOiJqcJHjJPr3vq6JqFhye1Q-SwLubx7PTPaSX_nolklLVOzPSBoq9ZCN7S2eQ1wqFp-sLl06vne60K1Dx5bJy0f_MSlqc26YZx5RIDBLX83rVpwpzwYZ1DDfVZ6Czs6H0jYWbmhNW4Ki1YkKDnM9AoWrRa7cJxhqwmY_SPvhzKiLsZZ8OocLa0R-fVc0RMD5sV-3qLyKD6tY4GfP"
@@ -179,16 +221,20 @@
       },
       {
         "name": "The Oberoi Amarvilas",
+        "id": "93",
         "lat": "27.167507",
         "long": "78.049398",
+        "type": "hotel",
         "image": [
           "https://www.oberoihotels.com/-/media/oberoi-hotels/website-images/the-oberoi-amarvilas-agra/experiences/detail/dine-under-the-stars.jpg"
         ]
       },
       {
         "name": "Shree Krishna Hospital Agra",
+        "id": "75",
         "lat": "27.2040261",
         "long": "78.0470946",
+        "type": "hospital",
         "image": [
           "https://content3.jdmagicbox.com/comp/agra/l2/0562px562.x562.131202180002.u1l2/catalogue/shree-krishna-hospital-agra-pvt-ltd-ram-bagh-agra-hospitals-iwmgl.jpg"
         ]

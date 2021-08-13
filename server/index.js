@@ -81,6 +81,34 @@ app.get("/api/music/:id", (req, res) => {
   res.send(music[req.params.id]);
 });
 
+app.get("/api/getNearby/:lat/:long/:pin", (req, res) => {
+  const p = req.params.pin;
+
+  let pincode;
+  pincodes.forEach((pin) => {
+    if (pin.pincode == p) {
+      pincode = pin;
+    }
+  });
+
+  let district;
+  Object.values(districts).forEach((s) => {
+    s.districts.forEach((d) => {
+      if (d.district_name == pincode.districtName) {
+        console.log(d);
+        district = {
+          district_id: d.district_id,
+          district_name: `${d.district_name}, ${s.name}`,
+        };
+      }
+    });
+  });
+
+  const dId = district.district_id;
+
+  res.send(places[dId][0]);
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server Listening on port ${port}`);
