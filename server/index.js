@@ -82,31 +82,35 @@ app.get("/api/music/:id", (req, res) => {
 });
 
 app.get("/api/getNearby/:lat/:long/:pin", (req, res) => {
-  const p = req.params.pin;
+  try {
+    const p = req.params.pin;
 
-  let pincode;
-  pincodes.forEach((pin) => {
-    if (pin.pincode == p) {
-      pincode = pin;
-    }
-  });
-
-  let district;
-  Object.values(districts).forEach((s) => {
-    s.districts.forEach((d) => {
-      if (d.district_name == pincode.districtName) {
-        console.log(d);
-        district = {
-          district_id: d.district_id,
-          district_name: `${d.district_name}, ${s.name}`,
-        };
+    let pincode;
+    pincodes.forEach((pin) => {
+      if (pin.pincode == p) {
+        pincode = pin;
       }
     });
-  });
 
-  const dId = district.district_id;
+    let district;
+    Object.values(districts).forEach((s) => {
+      s.districts.forEach((d) => {
+        if (d.district_name == pincode.districtName) {
+          console.log(d);
+          district = {
+            district_id: d.district_id,
+            district_name: `${d.district_name}, ${s.name}`,
+          };
+        }
+      });
+    });
 
-  res.send(places[dId].touristSights ?? []);
+    const dId = district.district_id;
+
+    res.send(places[dId].touristSights ?? []);
+  } catch (e) {
+    res.send([]);
+  }
 });
 
 const port = process.env.PORT || 3000;
