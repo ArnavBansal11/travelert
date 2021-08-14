@@ -82,6 +82,7 @@
       {
         "name": "D.D.A market washroom",
         "id": "6",
+        "description": "Public bathroom in Delhi",
         "lat": "28.6000",
         "long": "77.3179",
         "type": "washroom",
@@ -91,7 +92,8 @@
         ]
       },
       {
-        "name": "indian oil petrol pump dealer m/s taneja service stati",
+        "name": "Indian Oil Petrol Pump Dealer M/s Taneja Service Station",
+        "description": "Gas station in Delhi",
         "id": "69",
         "lat": "28.6289242",
         "long": "77.3213784",
@@ -101,6 +103,7 @@
       },
       {
         "name": "Taj Palace",
+        "description": "Set on over 2 hectares of gardens, this posh hotel is 6 km from the Lodhi Garden and 12 km from the 17th-century fortress, Red Fort. Chanakyapuri train station is 6 minutes away by foot.",
         "id": "42",
         "lat": "28.5953",
         "long": "77.1710",
@@ -112,6 +115,7 @@
       },
       {
         "name": "Indraprastha Apollo Hospitals, New Delhi",
+        "description": "General hospital in New Delhi",
         "id": "691",
         "lat": "28.5415",
         "long": "77.2833",
@@ -205,6 +209,7 @@
     "utils": [
       {
         "name": "Public Toilet - Sanjay Place",
+        "description": "Public bathroom in Agra, Uttar Pradesh",
         "id": "98",
         "lat": "27.2028",
         "long": "78.0049",
@@ -216,6 +221,7 @@
       },
       {
         "name": "Petrol Pump Transport Nagar Agra",
+        "description": "Gas station in Agra, Uttar Pradesh",
         "id": "87",
         "lat": "27.2106",
         "type": "petrol pump",
@@ -227,6 +233,7 @@
       },
       {
         "name": "The Oberoi Amarvilas",
+        "description": "5-star hotel",
         "id": "93",
         "lat": "27.167507",
         "long": "78.049398",
@@ -238,6 +245,7 @@
       },
       {
         "name": "Shree Krishna Hospital Agra",
+        "description": "General hospital in Agra, Uttar Pradesh",
         "id": "75",
         "lat": "27.2040261",
         "long": "78.0470946",
