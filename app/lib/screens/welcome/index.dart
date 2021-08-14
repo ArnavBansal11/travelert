@@ -24,7 +24,7 @@ class _MainWelcomeState extends State<MainWelcome> {
             Image.asset("assets/logo.png"),
             SizedBox(height: 40),
             Text(
-              "App Name",
+              "Travelert",
               style: TextStyle(
                   color: grey800, fontSize: 30, fontWeight: FontWeight.w600),
             ),

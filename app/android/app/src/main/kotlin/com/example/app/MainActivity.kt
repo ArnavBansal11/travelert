@@ -30,6 +30,13 @@ class MainActivity: FlutterActivity() {
                     startActivity(mapIntent)
                     result.success("")
                 }
+
+                "openSpotify" -> {
+                    val url = Uri.parse(call.argument<String>("link"))
+                    val mapIntent = Intent(Intent.ACTION_VIEW, url)
+                    startActivity(mapIntent)
+                    result.success("")
+                }
             }
         }
     }
