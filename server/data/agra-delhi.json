@@ -85,6 +85,7 @@
         "lat": "28.6000",
         "long": "77.3179",
         "type": "washroom",
+        "ratings": "3.5",
         "image": [
           "https://d2c6s77msf04pp.cloudfront.net/uploads/content/washroom-washroom-camden-market1-5c1a7f2aea5e0.jpg"
         ]
@@ -95,6 +96,7 @@
         "lat": "28.6289242",
         "long": "77.3213784",
         "type": "petrol pump",
+        "ratings": "4.5",
         "image": ["https://i.ndtvimg.com/i/2017-05/ioc_650x400_71493650427.jpg"]
       },
       {
@@ -103,6 +105,7 @@
         "lat": "28.5953",
         "long": "77.1710",
         "type": "hotel",
+        "ratings": "5",
         "image": [
           "https://www.tajhotels.com/content/dam/luxury/hotels/taj-palace-delhi/images/at_a_glance/16x7/Facade3.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg"
         ]
@@ -112,6 +115,7 @@
         "id": "691",
         "lat": "28.5415",
         "long": "77.2833",
+        "ratings": "4.7",
         "type": "hospital",
         "image": [
           "https://content.jdmagicbox.com/comp/noida/88/011p125688/catalogue/apollo-hospital-noida-sector-26-noida-hospitals-5nffdys6h5.jpg?clr=333333"
@@ -205,6 +209,7 @@
         "lat": "27.2028",
         "long": "78.0049",
         "type": "washroom",
+        "ratings": "3",
         "image": [
           "https://images.thestar.com/QmZaup4lLJSdgiRLXV8V-xZIeiI=/1280x1024/smart/filters:cb(1600477042366)/https://www.thespec.com/content/dam/thespec/opinion/contributors/2020/09/18/where-are-the-public-washrooms-hamilton/ts_coronavirus_publicbathrooms_dmt.jpg"
         ]
@@ -215,6 +220,7 @@
         "lat": "27.2106",
         "type": "petrol pump",
         "long": "77.9714",
+        "ratings": "3.4",
         "image": [
           "https://pr1.nicelocal.in/XL6OAgmARENVu7fsaD5bbA/640x440,fit,q85/4px-BW84_n2aGZJPv2Q_uysuQlRKXWAtkzmuAfqDQIQOipsYOiJqcJHjJPr3vq6JqFhye1Q-SwLubx7PTPaSX_nolklLVOzPSBoq9ZCN7S2eQ1wqFp-sLl06vne60K1Dx5bJy0f_MSlqc26YZx5RIDBLX83rVpwpzwYZ1DDfVZ6Czs6H0jYWbmhNW4Ki1YkKDnM9AoWrRa7cJxhqwmY_SPvhzKiLsZZ8OocLa0R-fVc0RMD5sV-3qLyKD6tY4GfP"
         ]
@@ -224,6 +230,7 @@
         "id": "93",
         "lat": "27.167507",
         "long": "78.049398",
+        "ratings": "5",
         "type": "hotel",
         "image": [
           "https://www.oberoihotels.com/-/media/oberoi-hotels/website-images/the-oberoi-amarvilas-agra/experiences/detail/dine-under-the-stars.jpg"
@@ -235,6 +242,7 @@
         "lat": "27.2040261",
         "long": "78.0470946",
         "type": "hospital",
+        "ratings": "4.2",
         "image": [
           "https://content3.jdmagicbox.com/comp/agra/l2/0562px562.x562.131202180002.u1l2/catalogue/shree-krishna-hospital-agra-pvt-ltd-ram-bagh-agra-hospitals-iwmgl.jpg"
         ]
