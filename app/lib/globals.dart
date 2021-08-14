@@ -2,7 +2,7 @@ library travel_thingy.globals;
 
 import 'package:flutter/material.dart';
 
-String baseUrl = "http://10.0.0.7:3000";
+String baseUrl = "https://travelert.herokuapp.com";
 
 Color grey100 = Color(0xfff5f7fa);
 Color grey200 = Color(0xffe4e7eb);
