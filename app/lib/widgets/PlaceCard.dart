@@ -15,8 +15,10 @@ class _PlaceCardState extends State<PlaceCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => PlaceDetails()));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => PlaceDetails(
+                  place: widget.place,
+                )));
       },
       child: Container(
           margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
@@ -54,13 +56,15 @@ class _PlaceCardState extends State<PlaceCard> {
                             fontWeight: FontWeight.w600,
                             fontSize: 20)),
                   ),
-                  Text(
-                    "${widget.place['openTime']} - ${widget.place['closeTime']}",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xff707070),
-                        fontSize: 15),
-                  ),
+                  widget.place['openTime'] != null
+                      ? Text(
+                          "${widget.place['openTime']} - ${widget.place['closeTime']}",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xff707070),
+                              fontSize: 15),
+                        )
+                      : Container(),
                   Expanded(child: Container()),
                   Container(
                     // color: Colors.red,
@@ -71,7 +75,7 @@ class _PlaceCardState extends State<PlaceCard> {
                           children: [
                             // Expanded(child: Container()),
                             Text(
-                              "5.0",
+                              widget.place['ratings'],
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   color: grey900,

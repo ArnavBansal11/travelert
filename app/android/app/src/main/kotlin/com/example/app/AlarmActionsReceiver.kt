@@ -28,7 +28,8 @@ class AlarmActionsReceiver : BroadcastReceiver() {
             if (action == "DISMISS") {
                 Log.d("LocationService", "request to dismiss")
                 context.sendBroadcast(Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS))
-                val notifManager: NotificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                val notifManager: NotificationManager =
+                    context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
                 notifManager.cancel(1900200733)
 
                 v = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -45,7 +46,8 @@ class AlarmActionsReceiver : BroadcastReceiver() {
                     v?.vibrate(VibrationEffect.createWaveform(longArrayOf(1000, 1000), 0));
                 }
 
-                val defaultRingtoneUri: Uri = RingtoneManager.getActualDefaultRingtoneUri(context, RingtoneManager.TYPE_ALARM)
+                val defaultRingtoneUri: Uri =
+                    RingtoneManager.getActualDefaultRingtoneUri(context, RingtoneManager.TYPE_ALARM)
                 mp = MediaPlayer()
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     mp?.setAudioAttributes(
@@ -61,7 +63,7 @@ class AlarmActionsReceiver : BroadcastReceiver() {
                 mp?.prepare()
 //                mp = MediaPlayer.create(context, defaultRingtoneUri)
                 mp?.start()
-            }else if(action == "OPENCOWIN"){
+            } else if (action == "OPENCOWIN") {
 
 //                val i = Intent(context, CowinActivity::class.java);
 //                context.startActivity(i)
@@ -69,8 +71,9 @@ class AlarmActionsReceiver : BroadcastReceiver() {
                 Log.d("AlarmWorker", "HERE")
 
                 context.sendBroadcast(Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS))
-                val notifManager: NotificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-                notifManager.cancel(19002007)
+                val notifManager: NotificationManager =
+                    context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                notifManager.cancel(1900200733)
 
                 v = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                 v?.cancel()
@@ -81,7 +84,21 @@ class AlarmActionsReceiver : BroadcastReceiver() {
                 mp?.release()
                 mp = null
 
-                val cowinIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://selfregistration.cowin.gov.in/"))
+                val prefs = context.getSharedPreferences(
+                    context.getString(R.string.shared_prefs_key),
+                    Context.MODE_PRIVATE
+                )
+                val cowinIntent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse(
+                        "geo:${prefs.getString("lat", "0.0")},${
+                            prefs.getString(
+                                "long",
+                                "0.0"
+                            )
+                        }"
+                    )
+                )
                 cowinIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 context.startActivity(cowinIntent)
             }

@@ -4,14 +4,35 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import androidx.annotation.RequiresApi
 import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugin.common.MethodChannel
 
 class MainActivity: FlutterActivity() {
+
+    private val CHANNEL = "com.example.travelert/method_channel"
+
+    override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
+        super.configureFlutterEngine(flutterEngine)
+
+        val channel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
+        channel.setMethodCallHandler{call, result ->
+            when(call.method){
+                "openMaps" -> {
+                    val url = Uri.parse("geo:${call.argument<Int>("lat")},${call.argument<Int>("long")}")
+                    val mapIntent = Intent(Intent.ACTION_VIEW, url)
+                    startActivity(mapIntent)
+                    result.success("")
+                }
+            }
+        }
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
