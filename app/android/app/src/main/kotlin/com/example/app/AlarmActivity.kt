@@ -44,13 +44,15 @@ class AlarmActivity : AppCompatActivity() {
             mp?.reset()
             mp?.release()
             mp = null
-            val defaultRingtoneUri: Uri = RingtoneManager.getActualDefaultRingtoneUri(this, RingtoneManager.TYPE_ALARM)
+            val defaultRingtoneUri: Uri =
+                RingtoneManager.getActualDefaultRingtoneUri(this, RingtoneManager.TYPE_ALARM)
             mp = MediaPlayer()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mp?.setAudioAttributes(AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_ALARM)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                    .build()
+                mp?.setAudioAttributes(
+                    AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_ALARM)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .build()
                 )
             } else {
                 mp?.setAudioStreamType(AudioManager.STREAM_ALARM)
@@ -73,18 +75,22 @@ class AlarmActivity : AppCompatActivity() {
             setTurnScreenOn(true)
         }
 
-        window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
-                or WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
-                or WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-                or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD)
+        window.addFlags(
+            WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+                    or WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+                    or WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                    or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
+        )
 
-        val keyGuardManager: KeyguardManager = (getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager)
+        val keyGuardManager: KeyguardManager =
+            (getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             keyGuardManager.requestDismissKeyguard(this, null)
         }
 
-        val sharedPrefs = getSharedPreferences(getString(R.string.shared_prefs_key), Context.MODE_PRIVATE)
+        val sharedPrefs =
+            getSharedPreferences(getString(R.string.shared_prefs_key), Context.MODE_PRIVATE)
 
         val placeText: TextView = findViewById(R.id.centerName)
         val slotsText: TextView = findViewById(R.id.slotsAvailable)
@@ -102,9 +108,15 @@ class AlarmActivity : AppCompatActivity() {
 
         val openLayout: ConstraintLayout = findViewById(R.id.openLayout)
 
-        openLayout.setOnClickListener{
+        openLayout.setOnClickListener {
             dismiss()
-            val mainIntent = Intent(Intent.ACTION_VIEW , Uri.parse("https://selfregistration.cowin.gov.in/"))
+            val mainIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("geo:${
+                    sharedPrefs.getString(
+                        "lat",
+                        "0.0"
+                    )
+                },${sharedPrefs.getString("long", "0.0")}"))
             startActivity(mainIntent)
             finish()
         }
@@ -121,7 +133,17 @@ class AlarmActivity : AppCompatActivity() {
             override fun onSwipeRight() {
                 super.onSwipeRight()
                 dismiss()
-                val mainIntent = Intent(Intent.ACTION_VIEW , Uri.parse("https://selfregistration.cowin.gov.in/"))
+                val mainIntent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse(
+                        "geo:${
+                            sharedPrefs.getString(
+                                "lat",
+                                "0.0"
+                            )
+                        },${sharedPrefs.getString("long", "0.0")}"
+                    )
+                )
                 startActivity(mainIntent)
                 finish()
             }
@@ -131,7 +153,8 @@ class AlarmActivity : AppCompatActivity() {
     }
 
     private fun dismiss() {
-        val notifManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notifManager: NotificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notifManager.cancel(19002007)
 
         val v = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
