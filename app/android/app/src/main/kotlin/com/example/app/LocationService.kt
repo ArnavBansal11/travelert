@@ -17,6 +17,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.*
+import okhttp3.*
+import org.json.JSONArray
+import org.json.JSONObject
+import java.io.IOException
 import java.util.*
 
 class LocationService : Service() {
@@ -73,15 +77,47 @@ class LocationService : Service() {
                         Context.MODE_PRIVATE
                     )
 
-                    val url = "https://travelert.herokuapp.com"
+                    val httpClient = OkHttpClient()
 
-                    with(prefs.edit()){
-                        putString("placeName", "India Gate")
-                        putString("lat", latitude.toString())
-                        putString("long", longitude.toString())
-                    }
+                    val url =
+                        "https://travelertapi.herokuapp.com/api/getNearby/$latitude/$longitude/${addresses[0].postalCode}"
+                    val req = Request.Builder().url(url).build()
 
-                    triggerAlarm()
+                    httpClient.newCall(req).enqueue(object : Callback {
+                        override fun onFailure(call: Call, e: IOException) {
+                            TODO("Not yet implemented")
+                        }
+
+                        override fun onResponse(call: Call, res: Response) {
+
+                            val body = JSONArray(res.body()!!.string())
+
+                            if(body.length() == 0) return
+
+//                            Log.d("LocationService", "OwO you are nearby something")
+
+                            val nearby = JSONObject(body[0].toString())
+
+                            Log.d("LocationService", nearby.toString())
+
+                            if(prefs.getString("id", "woriuhouh") == nearby.getString("id")) return
+
+                            with(prefs.edit()) {
+                                putString("placeName", nearby.getString("name"))
+                                putString("id", nearby.getString("id"))
+                                putString("lat", latitude.toString())
+                                putString("long", longitude.toString())
+                                commit()
+                            }
+
+                            triggerAlarm()
+                        }
+                    })
+
+
+
+
+//                    triggerAlarm()
                 }
             }, null)
         }

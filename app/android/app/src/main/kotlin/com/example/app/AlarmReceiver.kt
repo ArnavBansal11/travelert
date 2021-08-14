@@ -57,8 +57,10 @@ class AlarmReceiver : BroadcastReceiver() {
         val fullScreenPendingIntent = PendingIntent.getActivity(context, 0,
             fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val sharedPrefs = context.getSharedPreferences(context.getString(R.string.shared_prefs_key), Context.MODE_PRIVATE)
-        val place = sharedPrefs.getString("placeName", "Taj Mahal")
+        val sharedPrefs = context.getSharedPreferences("com.example.travelert.SHARED_PREFS_FILE", Context.MODE_PRIVATE)
+        val place = sharedPrefs.getString("placeName", "Taj")
+
+        Log.d("LocationService", place!!)
 //        val place = sharedPrefs.getString("place", "")
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
